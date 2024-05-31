@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Buscar Pokémon
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,56 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Buscar Pokémon</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-input
+      [(ngModel)] = "areaBuscarPokemon"
+      [counter] = "true"
+      fill = "solid"
+      helperText="Área para buscar por Pokémon"
+      label-placement="floating"
+      label="CEP"
+      maxlength="8"
+      placeholder="22555888"
+      type="text"
+      ></ion-input>
+      <ion-button
+      expand="block"
+      fill="solid"
+      (click)="buscarPokemon()"
+      >
+      Buscar por Pokémon
+      <ion-icon name="search" slot="end"></ion-icon>
+      </ion-button>
+    </ion-card-header>
+    <ion-list>
+      <ion-item *ngIf = "this.exibir">{{
+        this.areaBusca.logradouro + ', ' + this.areaBusca.bairro + ', ' + this.areaBusca.localidade + ' - ' + this.areaBusca.uf
+      }}</ion-item>
+    </ion-list>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{this.pokemon.name | uppercase}}</ion-card-title>
+      <ion-img alt="" [src]= "this.pokemon.imageURL" *ngIf = "this.exibir" ></ion-img>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>{{
+          'Abilities: ' + this.pokemon.abilities
+        }}</ion-item>
+        <ion-item>{{
+           'Height: ' + this.pokemon.height
+        }}</ion-item>
+        <ion-item>{{
+          'Weight: ' + this.pokemon.weight
+        }}</ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

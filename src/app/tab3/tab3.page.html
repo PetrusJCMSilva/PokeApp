@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Pokedéx
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,34 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Pokedéx</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col ><ion-card *ngFor="let pokemon of listaEsquerda">
+        <ion-card-content>
+          <ion-item > {{pokemon.name | uppercase}}</ion-item>
+          <ion-img [src] = "pokemon.imageURL" > </ion-img>
+          <ion-item color = "success" > Vitorias: + {{pokemon.vitorias}}</ion-item>
+          <ion-item color = "danger" > Derrotas: + {{pokemon.derrotas}}</ion-item>
+          <ion-item color = "primary" > Empates: + {{pokemon.empates}}</ion-item>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+
+        </ion-card-content>
+      </ion-card></ion-col>
+      <ion-col><ion-card *ngFor="let pokemon of listaDireita">
+        <ion-card-content >
+          <ion-item > {{pokemon.name | uppercase}}</ion-item>
+          <ion-img [src] = "pokemon.imageURL" > </ion-img>
+          <ion-item color = "success" > Vitorias: + {{pokemon.vitorias}}</ion-item>
+          <ion-item color = "danger" > Derrotas: + {{pokemon.derrotas}}</ion-item>
+          <ion-item color = "primary" > Empates: + {{pokemon.empates}}</ion-item>
+        </ion-card-content>
+      </ion-card></ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
 </ion-content>
