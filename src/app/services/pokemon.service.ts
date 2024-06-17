@@ -9,7 +9,7 @@ export class PokemonService {
   constructor() {}
 
   addPokemon(pokemon: any): void {
-    
+
     const newPokemon = {
       idPokemon: pokemon.idPokemon,
       abilities: pokemon.abilities,

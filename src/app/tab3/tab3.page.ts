@@ -9,7 +9,7 @@ import { PokemonService } from '../services/pokemon.service';
 })
 export class Tab3Page {
 
-  
+
 
   listaDireita: any[] = [];
   listaEsquerda: any[] = [];
@@ -18,12 +18,12 @@ export class Tab3Page {
 
   constructor(private pokeApiService: PokeApiService, private pokemonService: PokemonService) {}
 
-  ngOnInit(): void {
+  ionViewDidEnter() {
     this.resultados = this.pokemonService.getListPokemon();
-   
+
     for (let resultado of this.resultados){
       console.log(resultado);
-      
+
       const pokemon =  {
         idPokemon: '',
         name: '',

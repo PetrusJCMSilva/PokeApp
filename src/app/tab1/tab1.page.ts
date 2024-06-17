@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PokeApiService } from '../services/poke-api.service';
 import { ViaCEPService } from '../services/via-cep.service';
 import { PokemonService } from '../services/pokemon.service';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -37,7 +38,7 @@ export class Tab1Page {
   }
 
   teste: any;
-  constructor(private pokeApiService: PokeApiService, private viaCEPService: ViaCEPService, private pokemomService: PokemonService){
+  constructor(private pokeApiService: PokeApiService, private viaCEPService: ViaCEPService, private pokemonService: PokemonService){
 
   }
 
@@ -61,13 +62,13 @@ export class Tab1Page {
       this.pokemon.name = JSON.parse(JSON.stringify(value))["name"];
     });
     this.pokemon.imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/"+this.pokemon.idPokemon+".svg";
-    
+
     this.pokemonEncontrado.idPokemon =  this.pokemon.idPokemon;
     this.pokemonEncontrado.abilities =  this.pokemon.abilities;
-    this.pokemomService.addPokemon(this.pokemonEncontrado);
+    this.pokemonService.addPokemon(this.pokemonEncontrado);
     console.log(this.pokemonEncontrado);
     console.log(this.pokemon);
-    this.teste = this.pokemomService.getListPokemon();
+    this.teste = this.pokemonService.getListPokemon();
     console.log(this.teste);
 
 

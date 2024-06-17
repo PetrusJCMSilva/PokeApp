@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Pokedex</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Pokedex</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-searchbar placeholder="Procure um Pokémon..." animated="true" (ionChange)="onSearchChange($event)"></ion-searchbar>
+  <ion-card *ngFor="let pokemon of getFilteredPokemons()">
+    <ion-card-header>
+      <ion-card-title>No. {{pokemon.order}}</ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img alt="" [src]="pokemon.sprites.front_default" />
+          </ion-thumbnail>
+          <ion-label>{{pokemon.name | uppercase}}</ion-label>
+        </ion-item>
+
+
+      </ion-list>
+      
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
