@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PokeApiService } from '../services/poke-api.service';
 
 
+
 @Component({
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
@@ -18,10 +19,11 @@ export class Tab4Page  {
 
       for (let x = 1; x <= this.count; x++) {
         this.pokeApiService.getPokemonById(x).subscribe((value) => {
-          this.pokemons.push(value);
-
+          this.pokemons.push(value)
+          this.pokemons.sort((a, b) => a.id - b.id);
         });
       }
+
       console.log(this.pokemons);
   }
 

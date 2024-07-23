@@ -16,8 +16,9 @@
   <ion-card>
     <ion-card-header>
       <ion-card-title>{{this.pokemon.name | uppercase}}</ion-card-title>
-      <ion-img alt="" [src]= "this.pokemon.imageURL" ></ion-img>
+      <ion-img alt="" [src]= "this.pokemon.imageURL" class="img" ></ion-img>
       <ion-item [color] = "this.cor">
+        <ion-input ></ion-input>
         {{this.resultado}}
       </ion-item>
 
@@ -36,6 +37,26 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
+
+  <ion-button
+      expand="block"
+      fill="solid"
+      *ngIf = "this.btnBatalha"
+      (click)="batalhaPokemon()"
+      >
+      Batalhar Pokémon
+
+    </ion-button>
+
+    <ion-button
+      expand="block"
+      fill="solid"
+      *ngIf = "this.btnBusca"
+      (click)="buscarPokemon()"
+      >
+      Busque o próximo oponente
+
+    </ion-button>
 
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button (click)="addPhotoToGallery()">

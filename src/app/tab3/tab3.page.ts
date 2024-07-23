@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PokeApiService } from '../services/poke-api.service';
 import { PokemonService } from '../services/pokemon.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -16,9 +17,12 @@ export class Tab3Page {
   resultados!: any;
   cont = 0;
 
-  constructor(private pokeApiService: PokeApiService, private pokemonService: PokemonService) {}
+  constructor(private pokeApiService: PokeApiService, private pokemonService: PokemonService, private navCtrl: NavController) {}
 
   ionViewDidEnter() {
+    this.listaDireita = [];
+    this.listaEsquerda = [];
+    this.cont = 0;
     this.resultados = this.pokemonService.getListPokemon();
 
     for (let resultado of this.resultados){

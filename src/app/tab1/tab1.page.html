@@ -42,8 +42,8 @@
   </ion-card>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>{{this.pokemon.name | uppercase}}</ion-card-title>
-      <ion-img alt="" [src]= "this.pokemon.imageURL" *ngIf = "this.exibir" ></ion-img>
+      <ion-card-title>VOCÊ CAPTUROU {{this.pokemon.name | uppercase}}</ion-card-title>
+      <ion-img alt="" [src]= "this.pokemon.imageURL" class="img" *ngIf = "this.exibir" ></ion-img>
 
     </ion-card-header>
     <ion-card-content>

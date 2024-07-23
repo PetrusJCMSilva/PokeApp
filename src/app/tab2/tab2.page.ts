@@ -9,7 +9,8 @@ import { PokemonService } from '../services/pokemon.service';
 })
 export class Tab2Page {
   
-
+  btnBusca = false;
+  btnBatalha = true;
   idPokemon: any = '';
   pokemon: any = {
     name: '',
@@ -19,7 +20,7 @@ export class Tab2Page {
     imageURL: '',
   };
   oponente: any;
-  resultado: string = "Teste";
+  resultado: string = "Um Pokémon selvagem apareceu.";
   cor: string = '';
 
   constructor(private pokeApiService: PokeApiService, public photoService: PhotoService,private pokemonService: PokemonService) {}
@@ -28,8 +29,9 @@ export class Tab2Page {
   }
 
   ionViewDidEnter() {
+   
     this.buscarPokemon();
-    this.batalhaPokemon();
+    
   }
 
   buscarPokemon(){
@@ -41,7 +43,10 @@ export class Tab2Page {
     this.pokemon.name = JSON.parse(JSON.stringify(value))["name"];
   });
   this.pokemon.imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/"+this.idPokemon+".svg";
-
+  this.btnBatalha = true;
+  this.btnBusca = false;
+  this.cor = '';
+  this.resultado = "Um Pokémon selvagem apareceu."
   }
   batalhaPokemon(){
     this.oponente = this.pokemonService.getPokemon();
@@ -67,6 +72,8 @@ export class Tab2Page {
        this.cor = "danger";
        this.pokemonService.addPokemon(this.oponente);
     }
+  this.btnBusca = true;
+  this.btnBatalha = false;
   }
 }
 
